@@ -48,9 +48,9 @@ export const hookFactory: ListedNftsHookFactory = ({contract}) => () => {
       )
       await toast.promise(
         result!.wait(), {
-          pending: "Processing transaction",
-          success: "Nft is yours! Go to Profile page",
-          error: "Processing error"
+          pending: "Обработка транзакции",
+          success: "Nft приобретена! Перейдите на страницу профиля",
+          error: "Ошибка транзакции"
         }
       );
     } catch (e: any) {

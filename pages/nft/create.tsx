@@ -24,9 +24,9 @@ const NftCreate: NextPage = () => {
     description: "",
     image: "",
     attributes: [
-      {trait_type: "attack", value: "0"},
-      {trait_type: "health", value: "0"},
-      {trait_type: "speed", value: "0"},
+      {trait_type: "Урон", value: "0"},
+      {trait_type: "Здоровье", value: "0"},
+      {trait_type: "Скорость", value: "0"},
     ]
   });
 
@@ -45,7 +45,7 @@ const NftCreate: NextPage = () => {
 
   const handleImage = async (e: ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) {
-      console.error("Select a file");
+      console.error("Выберите файл");
       return;
     }
 
@@ -65,9 +65,9 @@ const NftCreate: NextPage = () => {
 
       const res = await toast.promise(
         promise, {
-          pending: "Minting NFT Token",
-          success: "NFT has been created",
-          error: "Minting error"
+          pending: "Создание NFT",
+          success: "NFT создан",
+          error: "Произошла ошибка"
         }
       )
 
@@ -109,9 +109,9 @@ const NftCreate: NextPage = () => {
       })
       const res = await toast.promise(
         promise, {
-          pending: "Uploading metadata",
-          success: "Metadata uploaded",
-          error: "Metadata upload error"
+          pending: "Загрузка метаданных",
+          success: "Метаданные загружены",
+          error: "Ошибка загрузки метаданных"
         }
       )
 
@@ -142,9 +142,9 @@ const NftCreate: NextPage = () => {
 
       await toast.promise(
         tx!.wait(), {
-          pending: "Uploading metadata",
-          success: "Metadata uploaded",
-          error: "Metadata upload error"
+          pending: "Загрузка метаданных",
+          success: "Метаданные загружены",
+          error: "Ошибка загрузки метаданных"
         }
       );
     } catch(e: any) {
@@ -161,12 +161,12 @@ const NftCreate: NextPage = () => {
               <ExclamationIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
             </div>
             <div className="ml-3">
-              <h3 className="text-sm font-medium text-yellow-800">Attention needed</h3>
+              <h3 className="text-sm font-medium text-yellow-800">Требуется внимание</h3>
               <div className="mt-2 text-sm text-yellow-700">
                 <p>
                 { network.isLoading ?
-                  "Loading..." :
-                  `Connect to ${network.targetNetwork}`
+                  "Загрузка.." :
+                  `Подключить ${network.targetNetwork}`
                 }
                 </p>
               </div>
@@ -183,14 +183,14 @@ const NftCreate: NextPage = () => {
         <div className="py-4">
           { !nftURI &&
             <div className="flex">
-              <div className="mr-2 font-bold underline">Do you have meta data already?</div>
+              <div className="mr-2 font-bold underline">У вас есть готовые метаданные?</div>
               <Switch
                 checked={hasURI}
                 onChange={() => setHasURI(!hasURI)}
                 className={`${hasURI ? 'bg-indigo-900' : 'bg-indigo-700'}
                   relative inline-flex flex-shrink-0 h-[28px] w-[64px] border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
               >
-                <span className="sr-only">Use setting</span>
+                <span className="sr-only">Установленные настройки</span>
                 <span
                   aria-hidden="true"
                   className={`${hasURI ? 'translate-x-9' : 'translate-x-0'}
@@ -204,9 +204,9 @@ const NftCreate: NextPage = () => {
           <div className="md:grid md:grid-cols-3 md:gap-6">
             <div className="md:col-span-1">
               <div className="px-4 sm:px-0">
-                <h3 className="text-lg font-medium leading-6 text-gray-900">List NFT</h3>
+                <h3 className="text-lg font-medium leading-6 text-gray-900">Разместить NFT</h3>
                 <p className="mt-1 text-sm text-gray-600">
-                  This information will be displayed publicly so be careful what you share.
+                  Эта информация будет отображаться в открытом доступе, поэтому будьте осторожны с тем, чем вы делитесь.
                 </p>
               </div>
             </div>
@@ -217,7 +217,7 @@ const NftCreate: NextPage = () => {
                     <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
                       <div>
                         <label htmlFor="uri" className="block text-sm font-medium text-gray-700">
-                          URI Link
+                          URI ссылка
                         </label>
                         <div className="mt-1 flex rounded-md shadow-sm">
                           <input
@@ -234,7 +234,7 @@ const NftCreate: NextPage = () => {
                   }
                   { nftURI &&
                     <div className='mb-4 p-4'>
-                      <div className="font-bold">Your metadata: </div>
+                      <div className="font-bold">Ваши метаданные: </div>
                       <div>
                         <Link href={nftURI}>
                           <a className="underline text-indigo-600">
@@ -247,7 +247,7 @@ const NftCreate: NextPage = () => {
                   <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
                     <div>
                       <label htmlFor="price" className="block text-sm font-medium text-gray-700">
-                        Price (ETH)
+                        Стоимость (ETH)
                       </label>
                       <div className="mt-1 flex rounded-md shadow-sm">
                         <input
@@ -268,7 +268,7 @@ const NftCreate: NextPage = () => {
                       type="button"
                       className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
-                      List
+                      Разместить
                     </button>
                   </div>
                 </div>
@@ -279,9 +279,9 @@ const NftCreate: NextPage = () => {
         <div className="md:grid md:grid-cols-3 md:gap-6">
           <div className="md:col-span-1">
             <div className="px-4 sm:px-0">
-              <h3 className="text-lg font-medium leading-6 text-gray-900">Create NFT Metadata</h3>
+              <h3 className="text-lg font-medium leading-6 text-gray-900">Создать NFT метаданные</h3>
               <p className="mt-1 text-sm text-gray-600">
-                This information will be displayed publicly so be careful what you share.
+                Эта информация будет отображаться в открытом доступе, поэтому будьте осторожны с тем, чем вы делитесь.
               </p>
             </div>
           </div>
@@ -291,7 +291,7 @@ const NftCreate: NextPage = () => {
                 <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                      Name
+                      Название
                     </label>
                     <div className="mt-1 flex rounded-md shadow-sm">
                       <input
@@ -301,13 +301,13 @@ const NftCreate: NextPage = () => {
                         name="name"
                         id="name"
                         className="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
-                        placeholder="My Nice NFT"
+                        placeholder="Самый крутой NFT"
                       />
                     </div>
                   </div>
                   <div>
                     <label htmlFor="description" className="block text-sm font-medium text-gray-700">
-                      Description
+                      Описание
                     </label>
                     <div className="mt-1">
                       <textarea
@@ -317,18 +317,18 @@ const NftCreate: NextPage = () => {
                         name="description"
                         rows={3}
                         className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-                        placeholder="Some nft description..."
+                        placeholder="Небольшое описание nft..."
                       />
                     </div>
                     <p className="mt-2 text-sm text-gray-500">
-                      Brief description of NFT
+                      Краткое описание NFT
                     </p>
                   </div>
                   {/* Has Image? */}
                   { nftMeta.image ?
                     <img src={nftMeta.image} alt="" className="h-40" /> :
                     <div>
-                    <label className="block text-sm font-medium text-gray-700">Image</label>
+                    <label className="block text-sm font-medium text-gray-700">Изображение</label>
                     <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                       <div className="space-y-1 text-center">
                         <svg
@@ -350,7 +350,7 @@ const NftCreate: NextPage = () => {
                             htmlFor="file-upload"
                             className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                           >
-                            <span>Upload a file</span>
+                            <span>Загрузить файл</span>
                             <input
                               onChange={handleImage}
                               id="file-upload"
@@ -359,9 +359,9 @@ const NftCreate: NextPage = () => {
                               className="sr-only"
                             />
                           </label>
-                          <p className="pl-1">or drag and drop</p>
+                          <p className="pl-1">или перетащить</p>
                         </div>
-                        <p className="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                        <p className="text-xs text-gray-500">PNG до 10MB</p>
                       </div>
                     </div>
                   </div>
@@ -384,7 +384,7 @@ const NftCreate: NextPage = () => {
                     )}
                   </div>
                   <p className="text-sm !mt-2 text-gray-500">
-                    Choose value from 0 to 100
+                    Задайте значение от 0 до 100
                   </p>
                 </div>
                 <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
@@ -393,7 +393,7 @@ const NftCreate: NextPage = () => {
                     type="button"
                     className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
-                    List
+                    Разместить
                   </button>
                 </div>
               </div>

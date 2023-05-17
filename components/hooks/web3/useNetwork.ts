@@ -2,14 +2,14 @@ import { CryptoHookFactory } from "@_types/hooks";
 import useSWR from "swr";
 
 const NETWORKS: {[k: string]: string} = {
-    1: "Ethereum Main Network",
-    3: "Ropsten Test Network",
-    4: "Rinkeby Test Network",
-    5: "Goerli Test Network",
-    42: "Kovan Test Network",
-    56: "Binance Smart Chain",
-    1337: "Ganache",
-    11155111: "Sepolia Test Network"
+    1: "Ethereum (основная сеть)",
+    3: "Ropsten (тестовая сеть)",
+    4: "Rinkeby (тестовая сеть)",
+    5: "Goerli (тестовая сеть)",
+    42: "Kovan (тестовая сеть)",
+    56: "Binance Smart Chain (основная сеть)",
+    1337: "Ganache (тестовая сеть)",
+    11155111: "Sepolia (тестовая сеть)"
   }
 
 const targetId = process.env.NEXT_PUBLIC_TARGET_CHAIN_ID as string;

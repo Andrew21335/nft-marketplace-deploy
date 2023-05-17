@@ -7,8 +7,8 @@ import ActiveLink from '../link';
 import Walletbar from './Walletbar';
 
 const navigation = [
-  { name: 'Marketplace', href: '/', current: true },
-  { name: 'Create', href: '/nft/create', current: false }
+  { name: 'Витрина', href: '/', current: true },
+  { name: 'Создать', href: '/nft/create', current: false }
 ]
 
 function classNames(...classes: string[]) {
@@ -70,10 +70,10 @@ export default function Navbar() {
                       <circle cx={4} cy={4} r={3} />
                     </svg>
                     { network.isLoading ?
-                      "Loading..." :
+                      "Загрузка..." :
                       account.isInstalled ?
                       network.data :
-                      "Install Web3 Wallet"
+                      "Установите Web3 кошелек"
                     }
                   </span>
                 </div>

@@ -25,6 +25,6 @@
       "@hooks/*": ["components/hooks/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/ui/modalwindow.js"],
   "exclude": ["node_modules"]
 }
