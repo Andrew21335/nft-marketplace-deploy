@@ -49,7 +49,7 @@ export const hookFactory: ListedNftsHookFactory = ({contract}) => () => {
       await toast.promise(
         result!.wait(), {
           pending: "Обработка транзакции",
-          success: "Nft приобретена! Перейдите на страницу профиля",
+          success: "NFT приобретена! Перейдите на страницу профиля",
           error: "Ошибка транзакции"
         }
       );

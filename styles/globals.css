@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.Toastify__spinner {
+/*.Toastify__spinner {
     border-color: var(--toastify-spinner-color-empty-area) !important;
     border-right-color: var(--toastify-spinner-color) !important;
-}
+}*/
